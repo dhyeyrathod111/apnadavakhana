@@ -44,10 +44,33 @@
 			</select>
         </div>
     </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <select class="form-select" id="occupation" name="occupation">
+			  	<option selected>---Occupation---</option>
+                <option value="Govt Employee">-  Govt Employee</option>
+                <option value="Private Employee">-  Private Employee</option>
+                <option value="Doctor">-  Doctor</option>
+                <option value="Advocate">-  Advocate</option>
+                <option value="Engineer">-  Engineer</option>
+                <option value="Police">-  Police </option>
+                <option value="Defence Service">-  Defence Service</option>
+                <option value="Business">-  Business</option>
+                <option value="Housewife">-  Housewife</option>
+                <option value="Students">-  Students</option>
+                <option value="Retired Person">-  Retired Person</option>
+                <option value="Others">-  Others</option>
+			</select>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <input required="" class="form-control" name="email" id="email" type="text" placeholder="Enter your email address">
+        </div>
+    </div>
 </div>
 <input type="hidden" value="{{ $id }}" name="id">
 <input type="hidden" value="member_details_form" name="form_name">
 <div class="form-group mt-3">
-	<input type="hidden" value="contact_number" name="form_name">
     <button type="submit" class="button button-contactForm boxed-btn">Send</button>
 </div>

@@ -16,12 +16,7 @@ class CreateMemberDetailsTable extends Migration
         Schema::create('member_details', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('member_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('registration_type');
-            $table->string('title');
-            $table->string('dob');
-            $table->string('gender');
+            
             $table->timestamps();
         });
     }

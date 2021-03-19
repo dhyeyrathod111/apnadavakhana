@@ -14,7 +14,7 @@ class MemberDetailController extends Controller
      */
     public function index()
     {
-        //
+          
     }
 
     /**
@@ -35,7 +35,15 @@ class MemberDetailController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $member_details = new MemberDetail;
+        $member_details->first_name = $request->first_name;
+        $member_details->last_name = $request->last_name;
+        $member_details->registration_type = $request->registration_type;
+        $member_details->title = $request->title;
+        $member_details->dob = $request->dob;
+        $member_details->gender = $request->gender;
+        $member_details->occupation = $request->occupation;
+        $member_details->email = $request->email;
     }
 
     /**

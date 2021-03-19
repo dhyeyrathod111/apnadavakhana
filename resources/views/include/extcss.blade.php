@@ -11,3 +11,5 @@
 <link rel="stylesheet" href="{{ asset('public/') }}/assets/css/slick.css">
 <link rel="stylesheet" href="{{ asset('public/') }}/assets/css/nice-select.css">
 <link rel="stylesheet" href="{{ asset('public/') }}/assets/css/style.css">
+<link rel="stylesheet" href="{{ asset('public/') }}/assets/css/newstyle.css">
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>

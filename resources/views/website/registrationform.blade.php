@@ -1,54 +1,108 @@
 @extends('layouts.websiteauthlayout')
 
 @section('pagecontent')
-	<section class="contact-section">
+	<section class="contact-section" id="grad1">
 		<div class="container">
 	        <div class="row">
-	            <div class="col-lg-12 mb-100">
+	            {{-- <div class="col-lg-12 mb-100">
 	                <div class="section-tittle section-tittle2 text-center">
 	                    <span>Appointment Apply Form</span>
 	                </div>
-	            </div>
-	            <div class="col-lg-8">
-	            	<div id="alert_message"></div>
-	                <form class="form-contact contact_form" action="{{ url('member') }}" id="ragistrationform">
-	                	@csrf
-	                    <div class="row">
-	                        <div class="col-sm-6">
-	                            <div class="form-group">
-	                                <input required class="form-control valid" name="contact_no" id="contact_no" type="text" placeholder="Enter your contact number">
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="form-group mt-3">
-	                    	<input type="hidden" value="contact_number" name="form_name">
-	                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-	                    </div>
-	                </form>
-	            </div>
-	            <div class="col-lg-3 offset-lg-1">
-	                <div class="media contact-info">
-	                    <span class="contact-info__icon"><i class="ti-home"></i></span>
-	                    <div class="media-body">
-	                        <h3>Buttonwood, California.</h3>
-	                        <p>Rosemead, CA 91770</p>
-	                    </div>
-	                </div>
-	                <div class="media contact-info">
-	                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-	                    <div class="media-body">
-	                        <h3>+1 253 565 2365</h3>
-	                        <p>Mon to Fri 9am to 6pm</p>
-	                    </div>
-	                </div>
-	                <div class="media contact-info">
-	                    <span class="contact-info__icon"><i class="ti-email"></i></span>
-	                    <div class="media-body">
-	                        <h3>support@colorlib.com</h3>
-	                        <p>Send us your query anytime!</p>
-	                    </div>
-	                </div>
-	            </div>
+	            </div> --}}
+	            <div class="container-fluid">
+		            <div class="row justify-content-center mt-0">
+		                <div class="col-12 text-center p-0 mt-3 mb-2">
+		                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+		                        <h2><strong>Sign Up Your User Account</strong></h2>
+		                        <p>Fill all form field to go to next step</p>
+		                        <div class="row">
+		                            <div class="col-md-12 mx-0">
+		                                <form id="msform">
+		                                    <ul id="progressbar">
+		                                        <li class="active" id="account"><strong>Verify Mobile Number</strong></li>
+		                                        <li id="personal"><strong>Personal</strong></li>
+		                                        <li id="payment"><strong>Payment</strong></li>
+		                                        <li id="confirm"><strong>Finish</strong></li>
+		                                    </ul>
+		                                    <fieldset>
+		                                        <div class="form-card">
+		                                            <input type="number" name="otp" placeholder="Enter OTP" />
+		                                        </div>
+		                                        <input type="button" name="next" class="next action-button" value="Next Step" />
+		                                    </fieldset>
+		                                    <fieldset>
+		                                        <div class="form-card">
+		                                            <h2 class="fs-title">Personal Information</h2>
+		                                            <input type="text" name="fname" placeholder="First Name" /> 
+		                                            <input type="text" name="lname" placeholder="Last Name" /> 
+		                                            <input type="text" name="phno" placeholder="Contact No." /> 
+		                                            <input type="text" name="phno_2" placeholder="Alternate Contact No." />
+		                                        </div>
+		                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+		                                    </fieldset>
+		                                    <fieldset>
+		                                        <div class="form-card">
+		                                            <h2 class="fs-title">Payment Information</h2>
+		                                            <div class="radio-group">
+		                                                <div class='radio' data-value="credit">
+		                                                	<img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px"></div>
+		                                                <div class='radio' data-value="paypal">
+		                                                	<img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px"></div>
+		                                                <br>
+		                                            </div>
+		                                            <label class="pay">Card Holder Name*</label> <input type="text" name="holdername" placeholder="" />
+		                                            <div class="row">
+		                                                <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="cardno" placeholder="" /> </div>
+		                                                <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
+		                                            </div>
+		                                            <div class="row">
+		                                                <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
+		                                                <div class="col-9">
+		                                                    <select class="list-dt" id="month" name="expmonth">
+		                                                        <option selected>Month</option>
+		                                                        <option>January</option>
+		                                                        <option>February</option>
+		                                                        <option>March</option>
+		                                                        <option>April</option>
+		                                                        <option>May</option>
+		                                                        <option>June</option>
+		                                                        <option>July</option>
+		                                                        <option>August</option>
+		                                                        <option>September</option>
+		                                                        <option>October</option>
+		                                                        <option>November</option>
+		                                                        <option>December</option>
+		                                                    </select>
+		                                                    <select class="list-dt" id="year" name="expyear">
+		                                                        <option selected>Year</option>
+		                                                    </select>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+		                                    </fieldset>
+		                                    <fieldset>
+		                                        <div class="form-card">
+		                                            <h2 class="fs-title text-center">Success !</h2>
+		                                            <br><br>
+		                                            <div class="row justify-content-center">
+		                                                <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+		                                            </div>
+		                                            <br><br>
+		                                            <div class="row justify-content-center">
+		                                                <div class="col-7 text-center">
+		                                                    <h5>You Have Successfully Signed Up</h5>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                    </fieldset>
+		                                </form>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
 	        </div>
 	    </div>
 	</section>
