@@ -25,7 +25,8 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('website.registrationform');
+        $this->data['member'] = Member::find(1);
+        return view('website.registrationform',$this->data);
     }
 
     /**
@@ -38,13 +39,11 @@ class MemberController extends Controller
     {
         $member = new Member;
         $member->contact_no = $request->contact_no;
-        $member->steps = 1;
+        $member->steps = 1; 
         $member->otp = rand(10000,99999);
         if ($member->save()) {
             $this->data['id'] = $member->id;
-            $this->response['html_form'] = \View::make('website.modal.secoundStepForm',$this->data)->render();
             $this->response['status'] = TRUE;
-            $this->response['action_url'] = route('otp_process');
         } else {
             $this->response['status'] = FALSE;
             $this->response['message'] = 'Sorry, we have to face some technical issues please try again later.';
@@ -58,9 +57,7 @@ class MemberController extends Controller
             $member->otp_status = 1;
             if ($member->save()) {
                 $this->data['id'] = $member->id;
-                $this->response['html_form'] = \View::make('website.modal.thirdStepForm',$this->data)->render();
                 $this->response['status'] = TRUE;
-                $this->response['action_url'] = url('member_details');
             } else {
                 $this->response['status'] = FALSE;
                 $this->response['message'] = 'Sorry, we have to face some technical issues please try again later.';     

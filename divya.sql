@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2021 at 12:50 PM
+-- Generation Time: Mar 22, 2021 at 07:00 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -42,7 +42,7 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `contact_no`, `otp`, `otp_status`, `steps`, `created_at`, `updated_at`) VALUES
-(1, '9967313968', 43451, 1, 1, '2021-03-14 06:13:55', '2021-03-14 06:14:12');
+(1, '9967313968', 123, 1, 1, '2021-03-14 06:13:55', '2021-03-14 06:14:12');
 
 -- --------------------------------------------------------
 
@@ -62,6 +62,13 @@ CREATE TABLE `member_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `member_details`
+--
+
+INSERT INTO `member_details` (`id`, `member_id`, `first_name`, `last_name`, `registration_type`, `title`, `dob`, `gender`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Sharon', 'Ewing', 'Id qui voluptatum r', 'Voluptatibus similiq', '1991-05-07', 'Voluptatem Incididu', '2021-03-22 12:10:16', '2021-03-22 12:28:55');
 
 -- --------------------------------------------------------
 
@@ -84,6 +91,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2014_10_12_100000_create_password_resets_table', 1),
 (32, '2021_03_13_190509_create_members_table', 1),
 (33, '2021_03_14_105304_create_member_details_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `occupation_master`
+--
+
+CREATE TABLE `occupation_master` (
+  `id` int(11) NOT NULL,
+  `occupation_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -137,6 +155,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `occupation_master`
+--
+ALTER TABLE `occupation_master`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -157,19 +181,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `member_details`
 --
 ALTER TABLE `member_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `occupation_master`
+--
+ALTER TABLE `occupation_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

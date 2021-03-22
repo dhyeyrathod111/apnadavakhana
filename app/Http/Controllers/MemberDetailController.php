@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class MemberDetailController extends Controller
 {
+    protected $data = array();protected $response = array();
     /**
      * Display a listing of the resource.
      *
@@ -35,17 +36,40 @@ class MemberDetailController extends Controller
      */
     public function store(Request $request)
     {
-        $member_details = new MemberDetail;
-        $member_details->first_name = $request->first_name;
-        $member_details->last_name = $request->last_name;
-        $member_details->registration_type = $request->registration_type;
-        $member_details->title = $request->title;
-        $member_details->dob = $request->dob;
-        $member_details->gender = $request->gender;
-        $member_details->occupation = $request->occupation;
-        $member_details->email = $request->email;
+        if (MemberDetail::where(['member_id'=>$request->member_id])->exists()) {
+            $menberinfo = MemberDetail::where(['member_id'=>$request->member_id])->first();
+        } else {
+            $menberinfo = new MemberDetail;
+        }
+        $menberinfo->member_id = $request->member_id;
+        $menberinfo->first_name = $request->first_name;
+        $menberinfo->last_name = $request->last_name;
+        $menberinfo->registration_type = $request->registration_type;
+        $menberinfo->title = $request->title;
+        $menberinfo->dob = $request->dob;
+        $menberinfo->gender = $request->gender;
+        $menberinfo->member_id = $request->member_id;
+        if ($menberinfo->save()) {
+            $this->response['status'] = TRUE;
+            $this->response['member_id'] = $request->member_id;
+        } else {
+            $this->response['status'] = FALSE;
+            $this->response['message'] = 'Sorry, we have to face some technical issues please try again later.';
+        }   
+        return response($this->response, 200)->header('Content-Type', 'application/json');
     }
-
+    public function load_persnalinformation(Request $request)
+    {
+        if (MemberDetail::where(['member_id'=>$request->member_id])->exists()) {
+            $this->data['memberdetails'] = MemberDetail::where('member_id',$request->member_id)->first();
+            $this->response['status'] = TRUE;
+            $this->response['html_str'] = \View::make('website.modal.persnalinfo',$this->data)->render();
+        } else {
+            $this->response['status'] = FALSE;
+            $this->response['message'] = 'Sorry, we have to face some technical issues please try again later.';
+        }
+        return response($this->response, 200)->header('Content-Type', 'application/json');
+    }
     /**
      * Display the specified resource.
      *

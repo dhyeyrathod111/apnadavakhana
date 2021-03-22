@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::resource('member', MemberController::class);
 Route::post('/otpformprocess', 'MemberController@otpformprocess')->name('otp_process');
+Route::post('/load_persnalinformation', 'MemberDetailController@load_persnalinformation')->name('loadpersnalinformation');
 
 Route::resource('member_details', MemberDetailController::class);
 
