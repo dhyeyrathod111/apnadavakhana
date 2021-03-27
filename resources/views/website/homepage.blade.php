@@ -394,7 +394,7 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                        <form id="contact-form" action="#" method="POST">
+	                        <form id="contact_numbr_form" action="{{ 1 }}">
 	                            <div class="row">
 	                                <div class="col-lg-6 col-md-6">
 	                                    <div class="form-box user-icon mb-30">

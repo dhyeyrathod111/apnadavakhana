@@ -7,4 +7,4 @@
     <P>Gender : {{ $memberdetails->gender }}</P>
 </div>
 <input type="button" onclick="previous_form($('#fildset_3'),$('#fildset_2'))" class="previous action-button-previous" value="Previous" /> 
-<input type="button" class="next action-button" value="Confirm" />
+<input type="button" class="next action-button" value="Confirm & Proceed to payment" />

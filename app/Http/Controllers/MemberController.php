@@ -39,7 +39,6 @@ class MemberController extends Controller
     {
         $member = new Member;
         $member->contact_no = $request->contact_no;
-        $member->steps = 1; 
         $member->otp = rand(10000,99999);
         if ($member->save()) {
             $this->data['id'] = $member->id;

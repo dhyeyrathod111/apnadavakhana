@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2021 at 07:00 PM
+-- Generation Time: Mar 27, 2021 at 12:43 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Vincent Stephens', 'wyfute@yopmail.com', '$2y$10$X79QKSb9imH4R96XXV2KXe0LaVwNDULTW5VnQiLiI62ylmW59W5Pu', NULL, '2021-03-27 05:06:57', '2021-03-27 05:06:57'),
+(2, 'Dane Gentry', 'pokas@yopmail.com', '$2y$10$0Ll6E1OYKcASpao.DhVmOuMm2IHOy/z9A3EK9.Lq/8gNXsOcmI.du', NULL, '2021-03-27 05:25:51', '2021-03-27 05:25:51');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `members`
 --
 
@@ -37,13 +61,6 @@ CREATE TABLE `members` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `members`
---
-
-INSERT INTO `members` (`id`, `contact_no`, `otp`, `otp_status`, `steps`, `created_at`, `updated_at`) VALUES
-(1, '9967313968', 123, 1, 1, '2021-03-14 06:13:55', '2021-03-14 06:14:12');
-
 -- --------------------------------------------------------
 
 --
@@ -53,22 +70,9 @@ INSERT INTO `members` (`id`, `contact_no`, `otp`, `otp_status`, `steps`, `create
 CREATE TABLE `member_details` (
   `id` int(10) UNSIGNED NOT NULL,
   `member_id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `registration_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dob` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `member_details`
---
-
-INSERT INTO `member_details` (`id`, `member_id`, `first_name`, `last_name`, `registration_type`, `title`, `dob`, `gender`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Sharon', 'Ewing', 'Id qui voluptatum r', 'Voluptatibus similiq', '1991-05-07', 'Voluptatem Incididu', '2021-03-22 12:10:16', '2021-03-22 12:28:55');
 
 -- --------------------------------------------------------
 
@@ -87,10 +91,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(30, '2014_10_12_000000_create_users_table', 1),
-(31, '2014_10_12_100000_create_password_resets_table', 1),
-(32, '2021_03_13_190509_create_members_table', 1),
-(33, '2021_03_14_105304_create_member_details_table', 1);
+(34, '2014_10_12_000000_create_users_table', 1),
+(35, '2014_10_12_100000_create_password_resets_table', 1),
+(36, '2021_03_13_190509_create_members_table', 1),
+(37, '2021_03_14_105304_create_member_details_table', 1),
+(38, '2021_03_27_072908_create_admins_table', 1);
 
 -- --------------------------------------------------------
 
@@ -137,6 +142,13 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
@@ -178,22 +190,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `member_details`
 --
 ALTER TABLE `member_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `occupation_master`
