@@ -13,7 +13,7 @@ $("#registration-form").validate({
             contentType: false,cache: false,processData:false, 
             success: response => {
                 if (response.status == true) {
-                    notify_success(response.message);
+                    notify_success(response.message);setTimeout(()=> window.location.href = response.redirect_url , 2000);
                 } else {
                     console.log(response);notify_error(response.message);
                 }

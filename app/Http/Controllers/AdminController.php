@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
+    public function __construct() {
+        $this->middleware('guestadmin', ['except' => ['loginform','adminregistrationform','registrationprocess','loginprocess']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.createnewmember');
     }
 
     /**
@@ -83,12 +86,45 @@ class AdminController extends Controller
     {
         //
     }
+    public function memberarea(Request $request)
+    {
+        return view('admin.memberarea');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function loginform(Request $request)
     {
+        if ($request->session()->has('admin_id')) return redirect(url('admin'));
         return view('admin.login');
     }
     public function adminregistrationform(Request $request)
     {
+        if ($request->session()->has('admin_id')) return redirect(url('admin'));
         return view('admin.registration');   
     }
     public function registrationprocess(Request $request)
@@ -109,7 +145,8 @@ class AdminController extends Controller
             $admin->email = $request->email;
             if ($admin->save()) {
                 $this->response['status'] = TRUE;
-                $this->response['message'] = 'Your account has been registr successfully.'; 
+                $this->response['message'] = 'Your account has been registr successfully.';
+                $this->response['redirect_url'] = route('adminlogin'); 
             } else {
                 $this->response['status'] = FALSE;
                 $this->response['message'] = 'Sorry, we have to face some technical issues please try again later.';
@@ -129,7 +166,7 @@ class AdminController extends Controller
         } else {
             $admininfo = Admin::where(['email'=>$request->email])->first();   
             if (!empty($admininfo) && \Hash::check($request->password,$admininfo->password)) {
-                $request->session()->put('admin_id',$admininfo->id);$request->session()->put('admin_email',$admininfo->email);
+                $request->session()->put('admin_id',$admininfo->id);$request->session()->put('admin_name',$admininfo->name);
                 $this->response['status'] = TRUE;
                 $this->response['message'] = 'Success!';
                 $this->response['redirect_url'] = url('admin');
@@ -139,5 +176,9 @@ class AdminController extends Controller
             }
         }
         return response($this->response, 200)->header('Content-Type', 'application/json');
+    }
+    public function adminlogout(Request $request)
+    {
+        $request->session()->flush();return redirect(route('adminlogin'));
     }
 }

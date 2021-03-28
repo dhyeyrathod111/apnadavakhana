@@ -14,23 +14,19 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-    @if(\Session::has('admin_id')) @include('include.adminheader') @endif ;
-
-
+    @if(\Session::has('admin_id')) @include('include.adminheader') @include('include.adminsiebar') @endif ;
     <div id="app">
         @yield('content')
     </div>
-
     <script src="{{ asset('public/assets/admin/js/jquery-3.3.1.min.js ') }}"></script>
     <script src="{{ asset('public/assets/admin/js/popper.min.js') }}" defer></script>
     <script src="{{ asset('public/assets/admin/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('public/assets/admin/js/main.js') }}" defer></script>
     <script src="{{ asset('public/assets/admin/js/plugins/pace.min.js') }}" defer></script>
-
     @include('include.extjs')
-
+    <script type="text/javascript">
+        var admin_base_url = "{{ url('admin') }}";
+    </script>
     @yield('pageScript')
-   
 </body>
 </html>

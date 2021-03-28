@@ -14,6 +14,7 @@ $("#login-form").validate({
             success: response => {
                 if (response.status == true) {
                     notify_success(response.message);
+                    setTimeout(()=> window.location.href = response.redirect_url , 1000);
                 } else {
                     console.log(response);notify_error(response.message);
                 }

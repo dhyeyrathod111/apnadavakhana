@@ -22,11 +22,15 @@ Route::post('/load_persnalinformation', 'MemberDetailController@load_persnalinfo
 Route::resource('member_details', MemberDetailController::class);
 
 Route::prefix('admin')->group(function () {
-	Route::resource('/', AdminController::class);
 	Route::get('/login', 'AdminController@loginform')->name('adminlogin');
 	Route::get('/registration', 'AdminController@adminregistrationform')->name('adminregistration');
 	Route::post('/registrationprocess','AdminController@registrationprocess')->name('registrationprocess');
 	Route::post('/loginprocess','AdminController@loginprocess')->name('loginprocess');
+	Route::get('/logout','AdminController@adminlogout')->name('adminlogout');
+	Route::get('/memberarea','AdminController@memberarea')->name('memberarea');
+
+
+	Route::resource('/', AdminController::class);
 });
 
 
