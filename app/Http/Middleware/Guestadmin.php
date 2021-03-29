@@ -16,8 +16,7 @@ class Guestadmin
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $response->header('X-XSS-Protection',"1;mode=block");
-        if (!$request->session()->has('admin_id')) return redirect(route('adminlogin'));  
+        if (!$request->session()->has('admin_id')) return redirect('admin/login');  
         return $response;
     }
 }

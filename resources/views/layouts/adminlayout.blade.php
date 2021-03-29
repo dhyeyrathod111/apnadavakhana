@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -15,15 +14,14 @@
 </head>
 <body>
     @if(\Session::has('admin_id')) @include('include.adminheader') @include('include.adminsiebar') @endif ;
+    {{-- @include('include.adminheader') @include('include.adminsiebar') --}}
     <div id="app">
         @yield('content')
     </div>
-    <script src="{{ asset('public/assets/admin/js/jquery-3.3.1.min.js ') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/popper.min.js') }}" defer></script>
-    <script src="{{ asset('public/assets/admin/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('public/assets/admin/js/main.js') }}" defer></script>
-    <script src="{{ asset('public/assets/admin/js/plugins/pace.min.js') }}" defer></script>
-    @include('include.extjs')
+
+    
+
+    @include('include.adminextjs')
     <script type="text/javascript">
         var admin_base_url = "{{ url('admin') }}";
     </script>

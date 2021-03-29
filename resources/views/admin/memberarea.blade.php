@@ -21,31 +21,18 @@
 		    		<table id="membertable" class="table table-striped table-bordered" style="width:100%">
 			        	<thead>
 				            <tr>
+				                <th>Unique Id</th>
 				                <th>Name</th>
-				                <th>Position</th>
-				                <th>Office</th>
-				                <th>Age</th>
-				                <th>Start date</th>
-				                <th>Salary</th>
+				                <th>contact Number</th>
+				                <th>Email</th>
+				                <th>Created date</th>
+				                <th>View card</th>
+				                <th>Action</th>
+				                
 				            </tr>
 				        </thead>
 				        <tbody>
-				        	<tr>
-				                <td>Tiger Nixon</td>
-				                <td>System Architect</td>
-				                <td>Edinburgh</td>
-				                <td>61</td>
-				                <td>2011/04/25</td>
-				                <td>$320,800</td>
-				            </tr>
-				            <tr>
-				                <td>Garrett Winters</td>
-				                <td>Accountant</td>
-				                <td>Tokyo</td>
-				                <td>63</td>
-				                <td>2011/07/25</td>
-				                <td>$170,750</td>
-				            </tr>
+				        	
 				        </tbody>
 			        </table>
 	    		</div>
@@ -62,4 +49,29 @@
  	<script src="{{ asset('public/assets/admin/js/plugins/jquery.dataTables.min.js') }}"></script>
  	<script src="{{ asset('public/assets/admin/js/plugins/dataTables.bootstrap.min.js') }}"></script>
  	<script src="{{ asset('public/assets/admin/js/memberarea.js') }}"></script>
+ 	<script type="text/javascript">
+		$(document).ready(()=>load_member_datatable());
+ 		const load_member_datatable = props => {
+		    var dataTable = $('#membertable').DataTable({
+		        "processing": true,
+		        "serverSide": true,
+		        "autoWidth" : false,
+		        "order": [],
+		        "columnDefs": [
+		            {
+		                "targets": [],
+		                "orderable": false,
+		            },
+		        ],
+		        "ajax": {
+		            url: '{{ route('datatable_memberlist') }}',
+		            type: "POST",
+		            data: {
+		                "_token": "{{ csrf_token() }}",
+		            }
+		        },
+		        "bDestroy": true
+		    });
+		}
+ 	</script>
 @endsection

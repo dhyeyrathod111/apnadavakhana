@@ -73,9 +73,13 @@ class MemberController extends Controller
      * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show(Request $request)
     {
-        //
+        try {
+            $decrypted = decrypt($request->segment(2));
+        } catch (DecryptException $e) {
+            
+        }
     }
 
     /**

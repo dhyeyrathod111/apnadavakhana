@@ -28,9 +28,16 @@ Route::prefix('admin')->group(function () {
 	Route::post('/loginprocess','AdminController@loginprocess')->name('loginprocess');
 	Route::get('/logout','AdminController@adminlogout')->name('adminlogout');
 	Route::get('/memberarea','AdminController@memberarea')->name('memberarea');
-
-
+	Route::post('/datatable_memberlist','AdminController@datatable_memberlist')->name('datatable_memberlist');
 	Route::resource('/', AdminController::class);
+});
+
+Route::get('/test', function() {
+    \Artisan::call('config:cache');
+    \Artisan::call('config:cache');
+    \Artisan::call('view:clear');
+    \Artisan::call('optimize:clear');
+    \Session::flush();
 });
 
 
