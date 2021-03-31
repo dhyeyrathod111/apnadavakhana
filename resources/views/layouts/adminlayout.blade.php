@@ -14,7 +14,6 @@
 </head>
 <body>
     @if(\Session::has('admin_id')) @include('include.adminheader') @include('include.adminsiebar') @endif ;
-    {{-- @include('include.adminheader') @include('include.adminsiebar') --}}
     <div id="app">
         @yield('content')
     </div>

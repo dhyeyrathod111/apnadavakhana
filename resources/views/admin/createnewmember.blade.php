@@ -23,30 +23,30 @@
 		    		<div class="row">
 		    			<div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Mobile number:</label>
-	                        <input type="text" class="form-control" name="mobile_no" id="mobile_no">
+	                        <input type="text" class="form-control" name="mobile_no" required id="mobile_no">
 	                    </div>
 		    			<div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">First name:</label>
-	                        <input type="text" id="first_name" name="first_name" class="form-control">
+	                        <input type="text" id="first_name" name="first_name" required class="form-control">
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Last name:</label>
-	                        <input type="text" id="last_name" name="last_name" class="form-control">
+	                        <input type="text" id="last_name" name="last_name" required class="form-control">
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Email ID:</label>
-	                        <input type="text" id="email_id" name="email_id" class="form-control">
+	                        <input type="text" id="email_id" name="email_id" required class="form-control">
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Type:</label>
-	                        <select name="type" id="type" class="form-control">
+	                        <select required name="type" id="type" class="form-control">
 	                            <option value="Individual">Individual</option>
 	                            <option value="Family">Family</option>
 	                        </select>
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Salutation:</label>
-	                        <select name="salutation" id="salutation" class="form-control">
+	                        <select required name="salutation" id="salutation" class="form-control">
 	                            <option value="">---Select salutation---</option>
 	                            <option value="Mr">Mr</option>
 	                            <option value="Mrs">Mrs</option>
@@ -60,18 +60,18 @@
 	                    
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Date Of Birth:</label>
-	                        <input type="text" readonly id="date_of_birth" name="date_of_birth" class="form-control">
+	                        <input required type="text" readonly id="date_of_birth" name="date_of_birth" class="form-control">
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Gender:</label>
-	                        <select name="gender" id="gender" class="form-control">
+	                        <select required name="gender" id="gender" class="form-control">
 	                            <option value="Male">Male</option>
 	                            <option value="Female">Female</option>
 	                        </select>
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Occupation:</label>
-	                        <select class="form-control dropdown" id="occupation" name="occupation">
+	                        <select required class="form-control dropdown" id="occupation" name="occupation">
 		                        <option value="" selected="selected">-- Select one --</option>
 		                        <option value="Govt Employee">-  Govt Employee</option>
 		                        <option value="Private Employee">-  Private Employee</option>
@@ -89,7 +89,7 @@
 	                    </div>
 	                    <div class="col-md-12 mt-3">
 	                        <label class="font-weight-bold">User image:</label>
-	                        <input type="file" id="member_image" name="member_image" class="form-control">
+	                        <input required type="file" id="member_image" name="member_image" class="form-control">
 	                    </div>
 	                </div>	
 	                <div style="padding: 50px 0px  9px 0px;text-align: center;">
@@ -98,7 +98,7 @@
 	                <div class="row">
 	                    <div class="col-md-12">
 	                        <label class="font-weight-bold">Address:</label>
-	                        <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+	                        <textarea required class="form-control" id="address" rows="3" name="address"></textarea>
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Road / Area:</label>
@@ -106,7 +106,7 @@
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">State:</label>
-	                        <select class="form-control dropdown" id="state" name="state">
+	                        <select required class="form-control dropdown" id="state" name="state">
 	                        	<option value="">-- Select state --</option>
 	                        	@foreach ($states as $onestates)
 		                        	<option value="{{ $onestates->id }}">{{ $onestates->name }}</option>
@@ -115,11 +115,11 @@
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">City / District:</label>
-	                        <input type="text" id="city_district" name="city_district" class="form-control">
+	                        <input required type="text" id="city_district" name="city_district" class="form-control">
 	                    </div>
 	                    <div class="col-md-4 mt-3">
 	                        <label class="font-weight-bold">Pincode:</label>
-	                        <input type="text" id="pincode" name="pincode" class="form-control">
+	                        <input required type="number" id="pincode" name="pincode" class="form-control">
 	                    </div>
 	                </div>
 	                <div class="row">

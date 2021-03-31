@@ -76,9 +76,15 @@ class MemberController extends Controller
     public function show(Request $request)
     {
         try {
-            $decrypted = decrypt($request->segment(2));
-        } catch (DecryptException $e) {
-            
+            $decryptid = base64_decode($request->segment(2));
+            if (Member::where('id',$decryptid)->exists() === TRUE) {
+                $this->data['member'] = Member::find($decryptid);
+                return view('website.cardview',$this->data);
+            } else {
+                return redirect(route('memberarea'));    
+            }
+        } catch (\DecryptException $e) {
+            return redirect(route('memberarea'));
         }
     }
 

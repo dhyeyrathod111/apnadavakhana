@@ -27,8 +27,7 @@
 				                <th>Email</th>
 				                <th>Created date</th>
 				                <th>View card</th>
-				                <th>Action</th>
-				                
+				                {{-- <th>Action</th> --}}
 				            </tr>
 				        </thead>
 				        <tbody>

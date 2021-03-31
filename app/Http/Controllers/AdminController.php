@@ -24,7 +24,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $this->data['members'] = Member::join('member_details','members.id','=','member_details.member_id')->get()->count();
+        return view('admin.index',$this->data);
     }
 
     /**
@@ -40,6 +41,11 @@ class AdminController extends Controller
     public function datatable_memberlist(Request $request)
     {
         $members_qeury = Member::join('member_details','members.id','=','member_details.member_id');
+        if (!empty($request->search['value']) && $request->search['value'] != '') {
+            $members_qeury->where('contact_no', 'like', $request->search['value']);
+            $members_qeury->orWhere('otp', 'like', $request->search['value']);
+        }
+
         $members_qeury->orderBy('members.created_at','DESC')->offset($request->start)->limit($request->length);
 
         $membersdata = $members_qeury->get();
@@ -48,11 +54,11 @@ class AdminController extends Controller
         foreach ($membersdata as $key => $onemember) :  
             $temp_array = array();
             $temp_array[] = $onemember->otp;
-            $temp_array[] = $onemember->memberdetail->first_name." ".$onemember->memberdetail->last_name ;
+            $temp_array[] = $onemember->memberdetail->first_name;
             $temp_array[] = $onemember->contact_no ;
             $temp_array[] = $onemember->memberdetail->email_id;
             $temp_array[] = $onemember->created_at->format('d/m/Y');
-            $temp_array[] = '<a href="'.\URL::to('member/'.encrypt($onemember->id)).'" class="btn btn-primary">View</a>';
+            $temp_array[] = '<a href="'.\URL::to('member/'.base64_encode($onemember->id)).'" class="btn btn-primary">View</a>';
             $temp_array[] = '<button type="button" class="btn btn-primary">Edit</button>';
             array_push($membersdata_array,$temp_array);
         endforeach ;
@@ -125,9 +131,9 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

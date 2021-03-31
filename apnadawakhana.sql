@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 12:49 PM
+-- Generation Time: Mar 31, 2021 at 10:39 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `divya`
+-- Database: `apnadawakhana`
 --
 
 -- --------------------------------------------------------
@@ -42,17 +42,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Vincent Stephens', 'wyfute@yopmail.com', '$2y$10$X79QKSb9imH4R96XXV2KXe0LaVwNDULTW5VnQiLiI62ylmW59W5Pu', NULL, '2021-03-27 05:06:57', '2021-03-27 05:06:57'),
-(2, 'Dane Gentry', 'pokas@yopmail.com', '$2y$10$0Ll6E1OYKcASpao.DhVmOuMm2IHOy/z9A3EK9.Lq/8gNXsOcmI.du', NULL, '2021-03-27 05:25:51', '2021-03-27 05:25:51'),
-(3, 'Erin Roman', 'wuxiguvis@yopmail.com', '$2y$10$ORetQUaMg0vcshMWwhCDzu.rXZDiphNqRQGRf1WFh0IQ0SVsRB.Oq', NULL, '2021-03-27 23:51:41', '2021-03-27 23:51:41'),
-(4, 'Grant Reid', 'cicydiroqu@yopmail.com', '$2y$10$1uggmROHDemdbEOsCh6.v.1d.2UvKfpSOqYor.mk2HUi4oTJqNlDq', NULL, '2021-03-28 00:17:15', '2021-03-28 00:17:15'),
-(5, 'Macy Murray', 'zotehyw@yopmail.com', '$2y$10$cXBRyYeHuQHdXRDyvNTMvuf69rODq7Yo/6c.IX/LReo5slh9FmuOC', NULL, '2021-03-28 00:17:33', '2021-03-28 00:17:33'),
-(6, 'Adrienne Potter', 'meqonoloc@yopmail.com', '$2y$10$zva5UK0.ATA4IDfjdAESsOezHi2Dhh9dPMrNbfCW5sNZnp1UH5h3O', NULL, '2021-03-28 00:18:08', '2021-03-28 00:18:08'),
-(7, 'Jonah Hurley', 'dixinuvaj@yopmail.com', '$2y$10$ap5EcY/BqCwavznf5YlJFOf0YEQG04TqVhkMi3OxsM9YdYQuhB.iC', NULL, '2021-03-28 10:41:05', '2021-03-28 10:41:05'),
-(8, 'Zahir Perez', 'gadoxaze@yopmail.com', '$2y$10$BCLCI.ZtRj41AHm6lH9ZYug1HvsORK4xBM..rlYh1dkQv1muFWJ16', NULL, '2021-03-28 10:41:50', '2021-03-28 10:41:50'),
-(9, 'Audra Peterson', 'nirihymyz@yopmail.com', '$2y$10$6qtsTWHlH69FUuriYh.2aeP2Ie6FYSOOWUFZZfq8/OS8qB2SQi4B6', NULL, '2021-03-28 10:42:02', '2021-03-28 10:42:02'),
-(10, 'Liberty Carrillo', 'kamoqydo@yopmail.com', '$2y$10$1wrHKxQ8EHJO07xZqPhwFOEl5pO3mkbRsuq9ddyUJekT0GLRhVWMK', NULL, '2021-03-28 10:48:17', '2021-03-28 10:48:17'),
-(11, 'Grady Rodgers', 'kuboxurysa@yopmail.com', '$2y$10$YM0pl8EG3n74ga5MGiIKyedjDXD/bHf93W6jmnr6EzkdnfkizA8si', NULL, '2021-03-29 00:47:52', '2021-03-29 00:47:52');
+(1, 'Dhyey Rathod', 'dhyeyrathod111@gmail.com', '$2y$10$BoAuRziVaYuD1z/Reoo9COfQaD5keUeGk6MCUaGa0vy/RFmYvXSPy', NULL, '2021-03-31 14:34:25', '2021-03-31 14:34:25');
 
 -- --------------------------------------------------------
 
@@ -76,10 +66,8 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `contact_no`, `otp`, `otp_status`, `steps`, `is_admin_created`, `created_at`, `updated_at`) VALUES
-(1, '2810678018', 19201, 0, 1, 0, '2021-03-29 04:25:24', '2021-03-29 04:25:24'),
-(2, '5056502619', 19326, 0, 1, 0, '2021-03-29 04:29:46', '2021-03-29 04:29:46'),
-(3, '9320949513', 44790, 0, 1, 0, '2021-03-29 04:30:04', '2021-03-29 04:30:04'),
-(4, '4151382319', 73764, 0, 1, 0, '2021-03-29 04:30:26', '2021-03-29 04:30:26');
+(1, '9967313968', 79081, 0, 1, 0, '2021-03-31 14:59:36', '2021-03-31 14:59:36'),
+(2, '7513597598', 98983, 0, 1, 0, '2021-03-31 15:01:06', '2021-03-31 15:01:06');
 
 -- --------------------------------------------------------
 
@@ -113,9 +101,8 @@ CREATE TABLE `member_details` (
 --
 
 INSERT INTO `member_details` (`id`, `member_id`, `first_name`, `last_name`, `email_id`, `type`, `salutation`, `date_of_birth`, `gender`, `occupation`, `address`, `road_area`, `state`, `city_district`, `pincode`, `member_image`, `created_at`, `updated_at`) VALUES
-(2, 2, 'Nell', 'Davenport', 'cuvibivib@yopmail.com', 'Individual', 'Prof', '25/03/2021', 'Male', 'Business', 'Nihil culpa tempore', 'Autem nostrum non qu', 30, 'Aliquam libero culpa', 'Id vel ut adipisci u', 'member_image/XDVkxis8TeJ8IWBNCGWU7cJAn4y6DmbLDPSPAmXc.jpg', '2021-03-29 04:29:46', '2021-03-29 04:29:46'),
-(3, 3, 'Ciaran', 'Berry', 'henuqemo@yopmail.com', 'Family', 'Ms', '31/03/2021', 'Female', 'Govt Employee', 'Omnis laboriosam vo', 'Dolor veritatis rati', 28, 'Atque mollit quis po', 'Et perspiciatis ut', 'member_image/HymieGvb51O4AZFRek8sEtSioJ5OhA5rcpgLJpfO.jpg', '2021-03-29 04:30:04', '2021-03-29 04:30:04'),
-(4, 4, 'Vielka', 'Stevens', 'toqecih@yopmail.com', 'Individual', 'Ms', '17/03/2021', 'Male', 'Advocate', 'Ea similique vel non', 'Ut consequuntur omni', 17, 'Voluptate eiusmod in', 'Natus perferendis mi', 'member_image/bfZS0k3wAFz0ne3hYQIqwDkntFCjMwEyezzDV6qG.jpg', '2021-03-29 04:30:26', '2021-03-29 04:30:26');
+(1, 1, 'test', 'data', 'testdata@yopmail.com', 'Individual', 'Mr', '14/04/2021', 'Male', 'Doctor', 'test address', 'Borivali', 22, 'Mumbai', '400092', 'member_image/5F4wwdws0c6IdksX98y89gSXCvO8c2dgxKBviP3K.jpg', '2021-03-31 14:59:36', '2021-03-31 14:59:36'),
+(2, 2, 'member', 'new', 'newmember@yopmail.com', 'Individual', 'Mr', '17/04/2021', 'Male', 'Doctor', 'new address', 'Borivali', 22, 'Mumbai', '400092', 'member_image/iEiNsavwvZ2Ape4pAanMAPJ5HjLN5HNgdCpB3xgG.jpg', '2021-03-31 15:01:06', '2021-03-31 15:01:06');
 
 -- --------------------------------------------------------
 
@@ -278,19 +265,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `member_details`
 --
 ALTER TABLE `member_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
