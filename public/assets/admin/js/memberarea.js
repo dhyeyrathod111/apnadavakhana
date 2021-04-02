@@ -1,8 +1,21 @@
 
-
 $("#member_details_form").validate({
     rules: {    
-        
+        mobile_no:{
+            phoneUS:true,
+            remote: {
+                url: admin_base_url + "/validatecontactno",
+                type: 'POST',
+                data:{
+                    "_token":$('#member_details_form input[name=_token]').val()
+                }
+            },
+        }
+    },
+    messages:{
+        mobile_no:{
+            remote:'This contact number is already in use',
+        }
     },
     errorElement: 'p',
     submitHandler: function(form) {
@@ -29,6 +42,7 @@ $("#member_details_form").validate({
         });
     }
 });
+
 
 
 

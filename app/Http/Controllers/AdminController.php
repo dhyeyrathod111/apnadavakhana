@@ -40,24 +40,21 @@ class AdminController extends Controller
     }
     public function datatable_memberlist(Request $request)
     {
-        $members_qeury = Member::join('member_details','members.id','=','member_details.member_id');
+        $members_qeury = Member::leftJoin('member_details','members.id','=','member_details.member_id');
         if (!empty($request->search['value']) && $request->search['value'] != '') {
             $members_qeury->where('contact_no', 'like', $request->search['value']);
             $members_qeury->orWhere('otp', 'like', $request->search['value']);
         }
-
         $members_qeury->orderBy('members.created_at','DESC')->offset($request->start)->limit($request->length);
-
         $membersdata = $members_qeury->get();
-
-        $memberscount = $membersdata->count();$membersdata_array = array();
+        $memberscount = $membersdata->count();$membersdata_array = array(); 
         foreach ($membersdata as $key => $onemember) :  
             $temp_array = array();
             $temp_array[] = $onemember->otp;
-            $temp_array[] = $onemember->memberdetail->first_name;
+            $temp_array[] = !empty($onemember->memberdetail) ? $onemember->memberdetail->first_name : '';
             $temp_array[] = $onemember->contact_no ;
-            $temp_array[] = $onemember->memberdetail->email_id;
-            $temp_array[] = $onemember->created_at->format('d/m/Y');
+            $temp_array[] = !empty($onemember->memberdetail) ? $onemember->memberdetail->email_id : '';
+            $temp_array[] = !empty($onemember->created_at) ? $onemember->created_at->format('d/m/Y') : '';
             $temp_array[] = '<a href="'.\URL::to('member/'.base64_encode($onemember->id)).'" class="btn btn-primary">View</a>';
             $temp_array[] = '<button type="button" class="btn btn-primary">Edit</button>';
             array_push($membersdata_array,$temp_array);
@@ -161,6 +158,14 @@ class AdminController extends Controller
     public function memberarea(Request $request)
     {
         return view('admin.memberarea');
+    }
+    public function validatecontactno(Request $request)
+    {
+        if (Member::where(['contact_no'=>$request->mobile_no])->exists()) {
+            echo 'false';
+        } else {
+            echo 'true';
+        }
     }
 
 

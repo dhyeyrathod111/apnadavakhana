@@ -80,6 +80,7 @@ class MemberController extends Controller
             if (Member::where('id',$decryptid)->exists() === TRUE) {
                 $this->data['member'] = Member::find($decryptid);
                 return view('website.cardview',$this->data);
+                // return view('website.cardview_two',$this->data);
             } else {
                 return redirect(route('memberarea'));    
             }

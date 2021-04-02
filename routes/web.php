@@ -29,6 +29,7 @@ Route::prefix('admin')->group(function () {
 	Route::get('/logout','AdminController@adminlogout')->name('adminlogout');
 	Route::get('/memberarea','AdminController@memberarea')->name('memberarea');
 	Route::post('/datatable_memberlist','AdminController@datatable_memberlist')->name('datatable_memberlist');
+	Route::post('/validatecontactno','AdminController@validatecontactno')->name('validatecontactno');
 	Route::resource('/', AdminController::class);
 });
 
