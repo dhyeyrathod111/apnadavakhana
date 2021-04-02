@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2021 at 10:39 PM
+-- Generation Time: Apr 02, 2021 at 09:07 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -42,7 +42,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Dhyey Rathod', 'dhyeyrathod111@gmail.com', '$2y$10$BoAuRziVaYuD1z/Reoo9COfQaD5keUeGk6MCUaGa0vy/RFmYvXSPy', NULL, '2021-03-31 14:34:25', '2021-03-31 14:34:25');
+(1, 'dhyey rathod', 'dhyeyrathod111@gmail.com', '$2y$10$oYeK0JZDsqh4HB3bmFi3Ce4Q0J/80mkDoX.n2KRbAaWKuygw4.xA.', NULL, '2021-04-01 14:49:04', '2021-04-01 14:49:04');
 
 -- --------------------------------------------------------
 
@@ -66,8 +66,9 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `contact_no`, `otp`, `otp_status`, `steps`, `is_admin_created`, `created_at`, `updated_at`) VALUES
-(1, '9967313968', 79081, 0, 1, 0, '2021-03-31 14:59:36', '2021-03-31 14:59:36'),
-(2, '7513597598', 98983, 0, 1, 0, '2021-03-31 15:01:06', '2021-03-31 15:01:06');
+(1, '1234567895', 34927, 0, 1, 0, '2021-04-01 14:55:29', '2021-04-01 14:55:29'),
+(2, '1234567895', 13080, 0, 1, 0, '2021-04-01 14:57:13', '2021-04-01 14:57:13'),
+(3, '1236547895', 41566, 0, 1, 0, '2021-04-01 15:01:04', '2021-04-01 15:01:04');
 
 -- --------------------------------------------------------
 
@@ -101,8 +102,9 @@ CREATE TABLE `member_details` (
 --
 
 INSERT INTO `member_details` (`id`, `member_id`, `first_name`, `last_name`, `email_id`, `type`, `salutation`, `date_of_birth`, `gender`, `occupation`, `address`, `road_area`, `state`, `city_district`, `pincode`, `member_image`, `created_at`, `updated_at`) VALUES
-(1, 1, 'test', 'data', 'testdata@yopmail.com', 'Individual', 'Mr', '14/04/2021', 'Male', 'Doctor', 'test address', 'Borivali', 22, 'Mumbai', '400092', 'member_image/5F4wwdws0c6IdksX98y89gSXCvO8c2dgxKBviP3K.jpg', '2021-03-31 14:59:36', '2021-03-31 14:59:36'),
-(2, 2, 'member', 'new', 'newmember@yopmail.com', 'Individual', 'Mr', '17/04/2021', 'Male', 'Doctor', 'new address', 'Borivali', 22, 'Mumbai', '400092', 'member_image/iEiNsavwvZ2Ape4pAanMAPJ5HjLN5HNgdCpB3xgG.jpg', '2021-03-31 15:01:06', '2021-03-31 15:01:06');
+(1, 1, 'testname', 'nametwo', 'testmember@yopmail.com', 'Individual', 'Mr', '14/04/2021', 'Male', 'Doctor', 'test address', 'sv road', 22, 'Mumbai', '400092', 'member_image/NQlsVujUsb9vMMATAIhVbBJPeMYeFIT1U3WAxAfj.jpg', '2021-04-01 14:55:30', '2021-04-01 14:55:30'),
+(2, 2, 'testuser', 'newmember', 'testnewmember@yopmail.com', 'Individual', 'Mr', '19/04/2021', 'Male', 'Doctor', 'test address', 'test road', 22, 'Mumbai', '400092', 'member_image/6mwHgfpCivUjH0PLfQRnNw5H7kFkyBfEgq9HjYCm.jpg', '2021-04-01 14:57:13', '2021-04-01 14:57:13'),
+(3, 3, 'new3', 'new3', 'new3@yopmail.com', 'Individual', 'Mrs', '15/04/2021', 'Female', 'Advocate', 'test address', 'Link road', 22, 'Mumbai', '400092', 'member_image/qvhSBlKLlWChzvD7Fo0jQTcK39uAqh020olq0etw.jpg', '2021-04-01 15:01:04', '2021-04-01 15:01:04');
 
 -- --------------------------------------------------------
 
@@ -265,19 +267,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `member_details`
 --
 ALTER TABLE `member_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
